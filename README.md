@@ -7,7 +7,7 @@
 ## Day 2 Progress
 
 - Created backend package structure
-- Created Device entity
-- Created Device repository
-- Created Device service
-- Created Device controller
+ 1.Created Device entity
+ 2. Created Device repository
+ 3. Created Device service
+ 4. Created Device controller
