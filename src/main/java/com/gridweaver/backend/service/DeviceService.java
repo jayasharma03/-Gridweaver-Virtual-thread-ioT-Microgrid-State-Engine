@@ -20,12 +20,22 @@ public class DeviceService {
 	    public List<Device> getAllDevices() {
 	        return repository.findAll();
 	    }
+	   
+	    public Device updateDevice(Long id, Device updatedDevice) {
+
+	        Device device = repository.findById(id).orElseThrow();
+
+	        device.setDeviceId(updatedDevice.getDeviceId());
+	        device.setStatus(updatedDevice.getStatus());
+	        device.setPowerOutput(updatedDevice.getPowerOutput());
+	        device.setLocation(updatedDevice.getLocation());
+
+	        return repository.save(device);
+	    }
 	
 	
 	
-	
-	
-	
+	    
 	
 	
 	
