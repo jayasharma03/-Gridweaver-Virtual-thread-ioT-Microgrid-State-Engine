@@ -1,6 +1,9 @@
 package com.gridweaver.backend.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +24,11 @@ public class DeviceController {
 	    @PostMapping
 	    public Device createDevice(@RequestBody Device device) {
 	        return service.saveDevice(device);
+	    }
+	    
+	    @GetMapping
+	    public List<Device> getAllDevices() {
+	        return service.getAllDevices();
 	    }
 
 	    
