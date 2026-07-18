@@ -32,6 +32,10 @@ public class DeviceService {
 
 	        return repository.save(device);
 	    }
+	    
+	    public void deleteDevice(Long id) {
+	        repository.deleteById(id);
+	    }
 	
 	
 	
