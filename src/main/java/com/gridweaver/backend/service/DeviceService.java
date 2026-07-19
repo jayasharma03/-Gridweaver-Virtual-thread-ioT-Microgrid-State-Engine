@@ -29,7 +29,7 @@ public class DeviceService {
 	        device.setStatus(updatedDevice.getStatus());
 	        device.setPowerOutput(updatedDevice.getPowerOutput());
 	        device.setLocation(updatedDevice.getLocation());
-
+	        device.setBatteryState(updatedDevice.getBatteryState());
 	        return repository.save(device);
 	    }
 	    

@@ -11,6 +11,11 @@ public class Device {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+    private String deviceId;
+	private String status;
+	private Double powerOutput;
+	private String location;
+	private String batteryState;
 	public Long getId() {
 		return id;
 	}
@@ -41,8 +46,11 @@ public class Device {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	private String deviceId;
-	private String status;
-	private Double powerOutput;
-	private String location;
+	public String getBatteryState() {
+	    return batteryState;
+	}
+
+	public void setBatteryState(String batteryState) {
+	    this.batteryState = batteryState;
+	}
 }
