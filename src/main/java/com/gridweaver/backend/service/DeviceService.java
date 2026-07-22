@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gridweaver.backend.entity.Device;
+import com.gridweaver.backend.enums.BatteryState;
 import com.gridweaver.backend.repository.DeviceRepository;
 
 @Service
@@ -14,6 +15,7 @@ public class DeviceService {
 	    private DeviceRepository repository;
 
 	    public Device saveDevice(Device device) {
+	    	  device.setBatteryState(BatteryState.IDLE);
 	        return repository.save(device);
 	    }
 
