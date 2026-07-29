@@ -3,19 +3,26 @@ package com.gridweaver.backend.kafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.PostConstruct;
+import com.gridweaver.backend.enums.BatteryEvent;
+import com.gridweaver.backend.service.BatteryStateService;
 
 @Service
 public class KafkaConsumerService {
 	
-	
-	 @PostConstruct
-	    public void init() {
-	        System.out.println("Kafka Consumer Loaded...");
-	    }
+	private final BatteryStateService batteryStateService;
+
+	public KafkaConsumerService(BatteryStateService batteryStateService) {
+	    this.batteryStateService = batteryStateService;
+	}
+	 
 
     @KafkaListener(topics = "device-events", groupId = "device-group")
     public void consume(String message) {
         System.out.println("Received Message: " + message);
+       
+        
+        batteryStateService.changeState(BatteryEvent.START_CHARGING);
+        
+        
     }
 }
