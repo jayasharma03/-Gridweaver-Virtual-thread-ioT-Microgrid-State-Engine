@@ -19,10 +19,19 @@ public class KafkaConsumerService {
     @KafkaListener(topics = "device-events", groupId = "device-group")
     public void consume(String message) {
         System.out.println("Received Message: " + message);
+        
+        
+        String[] data = message.split(",");
+
+        Long deviceId = Long.parseLong(data[0]);
+
+        BatteryEvent event = BatteryEvent.valueOf(data[1]);
+
+        batteryStateService.updateBatteryState(deviceId, event);
+
+        System.out.println("Battery State Updated Successfully");
+    }
        
         
-        batteryStateService.changeState(BatteryEvent.START_CHARGING);
-        
-        
+                
     }
-}
